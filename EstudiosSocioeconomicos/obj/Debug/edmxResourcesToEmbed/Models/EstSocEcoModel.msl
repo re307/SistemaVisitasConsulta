@@ -77,5 +77,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Encuestas">
+      <EntityTypeMapping TypeName="EstSocEcoModel.Encuestas">
+        <MappingFragment StoreEntitySet="Encuestas">
+          <ScalarProperty Name="UpdateCount" ColumnName="UpdateCount" />
+          <ScalarProperty Name="DesactiveCount" ColumnName="DesactiveCount" />
+          <ScalarProperty Name="ActiveCount" ColumnName="ActiveCount" />
+          <ScalarProperty Name="CreateRow" ColumnName="CreateRow" />
+          <ScalarProperty Name="AsingEncuestor" ColumnName="AsingEncuestor" />
+          <ScalarProperty Name="Encuestadores_Id" ColumnName="Encuestadores_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Encuestas_Log">
+      <EntityTypeMapping TypeName="EstSocEcoModel.Encuestas_Log">
+        <MappingFragment StoreEntitySet="Encuestas_Log">
+          <ScalarProperty Name="UpdateCount" ColumnName="UpdateCount" />
+          <ScalarProperty Name="DesactiveCount" ColumnName="DesactiveCount" />
+          <ScalarProperty Name="ActiveCount" ColumnName="ActiveCount" />
+          <ScalarProperty Name="AsingEncuestor" ColumnName="AsingEncuestor" />
+          <ScalarProperty Name="Encuestadores_Id" ColumnName="Encuestadores_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Encuestas_Id" ColumnName="Encuestas_Id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

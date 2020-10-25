@@ -65,11 +65,43 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nombre" Type="varchar(max)" />
     <Property Name="ApellidoPaterno" Type="varchar(max)" />
     <Property Name="ApellidoMaterno" Type="varchar(max)" />
     <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Encuestas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar(max)" />
+    <Property Name="ApellidoPaterno" Type="varchar(max)" />
+    <Property Name="ApellidoMaterno" Type="varchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Encuestadores_Id" Type="int" />
+    <Property Name="AsingEncuestor" Type="datetime" />
+    <Property Name="CreateRow" Type="datetime" />
+    <Property Name="ActiveCount" Type="datetime" />
+    <Property Name="DesactiveCount" Type="datetime" />
+    <Property Name="UpdateCount" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Encuestas_Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Encuestas_Id" Type="int" />
+    <Property Name="Nombre" Type="varchar(max)" />
+    <Property Name="ApellidoPaterno" Type="varchar(max)" />
+    <Property Name="ApellidoMaterno" Type="varchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Encuestadores_Id" Type="int" />
+    <Property Name="AsingEncuestor" Type="datetime" />
+    <Property Name="ActiveCount" Type="datetime" />
+    <Property Name="DesactiveCount" Type="datetime" />
+    <Property Name="UpdateCount" Type="datetime" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -135,6 +167,8 @@
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Encuestadores" EntityType="Self.Encuestadores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Encuestas" EntityType="Self.Encuestas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Encuestas_Log" EntityType="Self.Encuestas_Log" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />

@@ -31,5 +31,7 @@ namespace EstudiosSocioeconomicos.Models
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Encuestadores> Encuestadores { get; set; }
+        public virtual DbSet<Encuestas> Encuestas { get; set; }
+        public virtual DbSet<Encuestas_Log> Encuestas_Log { get; set; }
     }
 }

@@ -70,11 +70,43 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar(max)" />
           <Property Name="ApellidoPaterno" Type="varchar(max)" />
           <Property Name="ApellidoMaterno" Type="varchar(max)" />
           <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Encuestas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" />
+          <Property Name="ApellidoPaterno" Type="varchar(max)" />
+          <Property Name="ApellidoMaterno" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Encuestadores_Id" Type="int" />
+          <Property Name="AsingEncuestor" Type="datetime" />
+          <Property Name="CreateRow" Type="datetime" />
+          <Property Name="ActiveCount" Type="datetime" />
+          <Property Name="DesactiveCount" Type="datetime" />
+          <Property Name="UpdateCount" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Encuestas_Log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Encuestas_Id" Type="int" />
+          <Property Name="Nombre" Type="varchar(max)" />
+          <Property Name="ApellidoPaterno" Type="varchar(max)" />
+          <Property Name="ApellidoMaterno" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Encuestadores_Id" Type="int" />
+          <Property Name="AsingEncuestor" Type="datetime" />
+          <Property Name="ActiveCount" Type="datetime" />
+          <Property Name="DesactiveCount" Type="datetime" />
+          <Property Name="UpdateCount" Type="datetime" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -140,6 +172,8 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Encuestadores" EntityType="Self.Encuestadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Encuestas" EntityType="Self.Encuestas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Encuestas_Log" EntityType="Self.Encuestas_Log" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -180,6 +214,8 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <EntitySet Name="Encuestadores" EntityType="EstSocEcoModel.Encuestadores" />
+          <EntitySet Name="Encuestas" EntityType="EstSocEcoModel.Encuestas" />
+          <EntitySet Name="Encuestas_Log" EntityType="EstSocEcoModel.Encuestas_Log" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -282,6 +318,38 @@
           <Property Name="ApellidoMaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
+        <EntityType Name="Encuestas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Encuestadores_Id" Type="Int32" />
+          <Property Name="AsingEncuestor" Type="DateTime" Precision="3" />
+          <Property Name="CreateRow" Type="DateTime" Precision="3" />
+          <Property Name="ActiveCount" Type="DateTime" Precision="3" />
+          <Property Name="DesactiveCount" Type="DateTime" Precision="3" />
+          <Property Name="UpdateCount" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Encuestas_Log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Encuestas_Id" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Encuestadores_Id" Type="Int32" />
+          <Property Name="AsingEncuestor" Type="DateTime" Precision="3" />
+          <Property Name="ActiveCount" Type="DateTime" Precision="3" />
+          <Property Name="DesactiveCount" Type="DateTime" Precision="3" />
+          <Property Name="UpdateCount" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -361,6 +429,40 @@
                 <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Encuestas">
+            <EntityTypeMapping TypeName="EstSocEcoModel.Encuestas">
+              <MappingFragment StoreEntitySet="Encuestas">
+                <ScalarProperty Name="UpdateCount" ColumnName="UpdateCount" />
+                <ScalarProperty Name="DesactiveCount" ColumnName="DesactiveCount" />
+                <ScalarProperty Name="ActiveCount" ColumnName="ActiveCount" />
+                <ScalarProperty Name="CreateRow" ColumnName="CreateRow" />
+                <ScalarProperty Name="AsingEncuestor" ColumnName="AsingEncuestor" />
+                <ScalarProperty Name="Encuestadores_Id" ColumnName="Encuestadores_Id" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Encuestas_Log">
+            <EntityTypeMapping TypeName="EstSocEcoModel.Encuestas_Log">
+              <MappingFragment StoreEntitySet="Encuestas_Log">
+                <ScalarProperty Name="UpdateCount" ColumnName="UpdateCount" />
+                <ScalarProperty Name="DesactiveCount" ColumnName="DesactiveCount" />
+                <ScalarProperty Name="ActiveCount" ColumnName="ActiveCount" />
+                <ScalarProperty Name="AsingEncuestor" ColumnName="AsingEncuestor" />
+                <ScalarProperty Name="Encuestadores_Id" ColumnName="Encuestadores_Id" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Encuestas_Id" ColumnName="Encuestas_Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

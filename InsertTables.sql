@@ -1,0 +1,2 @@
+﻿insert into Encuestas (Nombre,ApellidoPaterno,ApellidoMaterno,IsActive,Encuestadores_Id,AsingEncuestor,CreateRow,ActiveCount,DesactiveCount,UpdateCount) values
+						('Rafael Eduardo','Méndez','Pérez',0,null,null,getdate(),null,null,null)

@@ -19,6 +19,8 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
     <EntitySet Name="Encuestadores" EntityType="EstSocEcoModel.Encuestadores" />
+    <EntitySet Name="Encuestas" EntityType="EstSocEcoModel.Encuestas" />
+    <EntitySet Name="Encuestas_Log" EntityType="EstSocEcoModel.Encuestas_Log" />
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
     <Key>
@@ -120,5 +122,37 @@
     <Property Name="ApellidoPaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="ApellidoMaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Encuestas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoPaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoMaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Encuestadores_Id" Type="Int32" />
+    <Property Name="AsingEncuestor" Type="DateTime" Precision="3" />
+    <Property Name="CreateRow" Type="DateTime" Precision="3" />
+    <Property Name="ActiveCount" Type="DateTime" Precision="3" />
+    <Property Name="DesactiveCount" Type="DateTime" Precision="3" />
+    <Property Name="UpdateCount" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Encuestas_Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Encuestas_Id" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoPaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoMaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Encuestadores_Id" Type="Int32" />
+    <Property Name="AsingEncuestor" Type="DateTime" Precision="3" />
+    <Property Name="ActiveCount" Type="DateTime" Precision="3" />
+    <Property Name="DesactiveCount" Type="DateTime" Precision="3" />
+    <Property Name="UpdateCount" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

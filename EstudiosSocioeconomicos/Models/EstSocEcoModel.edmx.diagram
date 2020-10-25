@@ -14,6 +14,8 @@
         <AssociationConnector Association="EstSocEcoModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="EstSocEcoModel.AspNetUserRoles" />
         <EntityTypeShape EntityType="EstSocEcoModel.Encuestadores" Width="1.5" PointX="6.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EstSocEcoModel.Encuestas" Width="1.5" PointX="6.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EstSocEcoModel.Encuestas_Log" Width="1.5" PointX="8.25" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
