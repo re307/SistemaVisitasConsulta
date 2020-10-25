@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b11ae37f4ad1491eb31c7809aeba54b9" Name="Diagram1" >
+        <EntityTypeShape EntityType="EstSocEcoModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="EstSocEcoModel.AspNetRoles" Width="1.5" PointX="3.5" PointY="2.5" />
+        <EntityTypeShape EntityType="EstSocEcoModel.AspNetUserClaims" Width="1.5" PointX="3.625" PointY="4.375" />
+        <EntityTypeShape EntityType="EstSocEcoModel.AspNetUserLogins" Width="1.5" PointX="3.5" PointY="0.5" />
+        <EntityTypeShape EntityType="EstSocEcoModel.AspNetUsers" Width="1.5" PointX="0.5" PointY="1.25" />
+        <AssociationConnector Association="EstSocEcoModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="EstSocEcoModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="EstSocEcoModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="EstSocEcoModel.Encuestadores" Width="1.5" PointX="6.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
