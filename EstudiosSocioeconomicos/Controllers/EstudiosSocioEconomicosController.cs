@@ -56,10 +56,10 @@ namespace EstudiosSocioeconomicos.Controllers
                 ,IsActive = x.IsActive
                 ,Encuestadores_Id = x.Encuestadores_Id
                 ,AsingEncuestor = x.AsingEncuestor
-                ,s_CreateRow = x.CreateRow.ToString()
-                ,s_ActiveCount = x.ActiveCount.ToString()
-                ,s_DesactiveCount = x.DesactiveCount.ToString()
-                ,s_UpdateCount = x.UpdateCount.ToString()
+                ,s_CreateRow = x.CreateRow == null ? "No se ha Registrado":x.CreateRow.ToString()
+                ,s_ActiveCount = x.ActiveCount == null ? "No se ha Registrado" :x.ActiveCount.ToString()
+                ,s_DesactiveCount = x.DesactiveCount == null ? "No se ha Registrado" :x.DesactiveCount.ToString()
+                ,s_UpdateCount = x.UpdateCount == null ? "No se ha Registrado" :x.UpdateCount.ToString()
 
             }).ToList();
 
